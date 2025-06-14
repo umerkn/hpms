@@ -9,10 +9,10 @@
 
 ## 👥 Group Members
 
-- **Amna** – Patient registration
-- **Haider** – Patient search by CNIC
-- **Rehman** – Updating patient records
-- **Umer** – Display categories based on symptoms
+- Amna
+- Haider
+- Rehman
+- Umer
 
 ## 🏥 Project Description
 
@@ -48,6 +48,14 @@ Below is the main menu of the Hospital Patient Management System:
 ## 🗃 Sample Data File
 
 You can optionally include `data/patients.txt` with sample patient entries.
+
+## 📎 Additional Materials
+
+- [`HPMS_Report.pdf`](docs/HPMS_Report.pdf) – Final report submitted for the course
+- [`HPMS_Presentation.pptx`](docs/HPMS_Presentation.pptx) – Presentation slides used during evaluation
+
+> ⚠️ **Disclaimer:**  
+> The report and presentation were prepared for an earlier version of the project. Several changes and improvements have since been made to the code based on instructor feedback. As a result, some details in the report and presentation may no longer fully reflect the current version.
 
 ## 📄 License
 

@@ -6,11 +6,14 @@
     Group Members: Amna, Haider, Rehman, Umer
     Semester: Spring 2025
 
-    Contribution:
-    - Amna: Responsible for patient registration functionality.
-    - Haider: Worked on searching patients by ID functionality.
-    - Rehman: Handled updating patient records.
-    - Umer: Created the categories display based on symptoms.
+    Description:
+    A console-based system developed in C++ to manage hospital patient records,
+    including features like registration, search by CNIC, record updating, and
+    category display based on symptoms.
+
+    Note:
+    This project was a collaborative effort. Roles were shared among group members
+    throughout the development process.
 */
 #include <iostream>
 #include <string>
