@@ -27,6 +27,12 @@ A console-based Hospital Patient Management System developed in C++ for maintain
 - List all patients
 - Data persistence using `patients.txt`
 
+## 🖼 Screenshot
+
+Below is the main menu of the Hospital Patient Management System:
+
+![Main Menu Screenshot](images/screenshot.png)
+
 ## 🛠 Technologies
 
 - C++
@@ -34,7 +40,7 @@ A console-based Hospital Patient Management System developed in C++ for maintain
 
 ## 🚀 How to Run
 
-1. Open project in any C++ IDE (e.g., Dev C++, Code::Blocks, Visual Studio)
+1. Open the project in any C++ IDE (e.g., Dev C++, Code::Blocks, Visual Studio)
 2. Compile `src/hpms.cpp`
 3. Run the executable
 4. Ensure `patients.txt` is in the same directory to load/save data
