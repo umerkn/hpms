@@ -123,26 +123,6 @@ void printMenu()
     setColor(7);
 }
 
-bool isValidCNIC(const string &cnic)
-{
-    if (cnic.length() != 15)
-        return false;
-    for (int i = 0; i < 15; i++)
-    {
-        if (i == 5 || i == 13)
-        {
-            if (cnic[i] != '-')
-                return false;
-        }
-        else
-        {
-            if (!isdigit(cnic[i]))
-                return false;
-        }
-    }
-    return true;
-}
-
 void registerPatient()
 {
     if (patientCount >= MAX_PATIENTS)
