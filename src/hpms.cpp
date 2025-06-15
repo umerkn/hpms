@@ -88,7 +88,9 @@ int main()
         cin >> choice;
     }
     setColor(10);
-    cout << "Exiting the program. Goodbye!\n";
+    cout << "\n****************************************\n";
+    cout << "   Thank you for using HPMS. Goodbye!   \n";
+    cout << "****************************************\n";
     setColor(7);
     return 0;
 }
@@ -457,17 +459,15 @@ string selectSymptom()
 
     while (true)
     {
-        cout << "Select a symptom (1-10):\n";
-        cout << "1. Fever\n";
-        cout << "2. Cough\n";
-        cout << "3. Headache\n";
-        cout << "4. Fatigue\n";
-        cout << "5. Shortness of Breath\n";
-        cout << "6. Chest Pain\n";
-        cout << "7. Dizziness\n";
-        cout << "8. Nausea\n";
-        cout << "9. Vomiting\n";
-        cout << "10. Other\n";
+        cout << "+---------------------------+\n";
+        cout << "|   Select a Symptom        |\n";
+        cout << "+---------------------------+\n";
+        cout << "| 1. Fever       2. Cough   |\n";
+        cout << "| 3. Headache    4. Fatigue |\n";
+        cout << "| 5. Breathless  6. Chest   |\n";
+        cout << "| 7. Dizziness   8. Nausea  |\n";
+        cout << "| 9. Vomiting   10. Other   |\n";
+        cout << "+---------------------------+\n";
         cout << "Enter choice (1-10): ";
         cin >> symptomChoice;
 
