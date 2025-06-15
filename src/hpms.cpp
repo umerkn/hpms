@@ -96,35 +96,41 @@ int main()
 void printMenu()
 {
     system("cls");
-    cout << " _    _ _____  __  __  _____   \n";
-    cout << "| |  | |  __ \\|  \\/  |/ ____|\n";
-    cout << "| |__| | |__) | \\  / | (___  \n";
-    cout << "|  __  |  ___/| |\\/| |\\___ \\ \n";
-    cout << "| |  | | |    | |  | |____) |\n";
-    cout << "|_|  |_|_|    |_|  |_|_____/ \n\n";
+
     setColor(11);
-    cout << "############################################################\n";
-    cout << "#       Hospital Patient Management System (HPMS)          #\n";
-    cout << "############################################################\n";
+    cout << "               _    _ _____  __  __  _____  \n";
+    cout << "              | |  | |  __ \\|  \\/  |/ ____| \n";
+    cout << "              | |__| | |__) | \\  / | (___   \n";
+    cout << "              |  __  |  ___/| |\\/| |\\___ \\  \n";
+    cout << "              | |  | | |    | |  | |____) | \n";
+    cout << "              |_|  |_|_|    |_|  |_|_____/  \n";
+
     setColor(7);
-    cout << "# Created by : Amna, Haider, Rehman & Umer                 #\n";
-    cout << "# Course     : Programming Fundamentals (AI-133)           #\n";
-    cout << "# Instructor : Mr. Muhammad Usman Yousaf                   #\n";
-    cout << "############################################################\n\n";
+    cout << "  +----------------------------------------------------+\n";
+    cout << "  |        Hospital Patient Management System          |\n";
+    cout << "  +----------------------------------------------------+\n";
+    cout << "  | Created by : Amna, Haider, Rehman, Umer            |\n";
+    cout << "  | Course     : Programming Fundamentals (AI-133)     |\n";
+    cout << "  | Instructor : Mr. Muhammad Usman Yousaf             |\n";
+    cout << "  +----------------------------------------------------+\n";
+
     setColor(14);
-    cout << "========================== MENU ============================\n";
-    cout << "| [1] Register Patient                                     |\n";
-    cout << "| [2] Search Patient by CNIC                               |\n";
-    cout << "| [3] Update Patient                                       |\n";
-    cout << "| [4] Show Categories                                      |\n";
-    cout << "| [5] List All Patients                                    |\n";
-    cout << "| [6] Delete Patient by CNIC                               |\n";
-    cout << "| [7] Exit                                                 |\n";
-    cout << "============================================================\n";
+    cout << "  +------------------------ MENU ----------------------+ \n";
     setColor(7);
-    cout << "Total Patients Registered: " << patientCount << "\n\n";
+    cout << "  | [1] Register Patient                               |\n";
+    cout << "  | [2] Search Patient by CNIC                         |\n";
+    cout << "  | [3] Update Patient Details                         |\n";
+    cout << "  | [4] Show Categories                                |\n";
+    cout << "  | [5] List All Patients                              |\n";
+    cout << "  | [6] Delete Patient by CNIC                         |\n";
+    cout << "  | [7] Exit                                           |\n";
+    cout << "  +----------------------------------------------------+\n";
+
     setColor(10);
-    cout << "Select an option [1-7] and press Enter: ";
+    cout << "\n  Total Patients Registered: " << patientCount << "\n";
+
+    setColor(11);
+    cout << "\n  Select an option and press Enter [1-7]: ";
     setColor(7);
 }
 
