@@ -22,6 +22,7 @@ A console-based Hospital Patient Management System developed in C++ for maintain
 
 - Register new patients
 - Search patients by CNIC
+- Delete patients by CNIC
 - Update existing patient records
 - Show categories based on symptoms
 - List all patients
