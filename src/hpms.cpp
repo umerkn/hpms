@@ -42,6 +42,7 @@ void searchPatientByCNIC();
 void updatePatient();
 void showCategories();
 void listAllPatients();
+void deletePatientByCNIC();
 string selectSymptom();
 void setColor(int color);
 void savePatientsToFile();
@@ -53,7 +54,7 @@ int main()
     int choice = 0;
     printMenu();
     cin >> choice;
-    while (choice != 6)
+    while (choice != 7)
     {
         switch (choice)
         {
@@ -71,6 +72,9 @@ int main()
             break;
         case 5:
             listAllPatients();
+            break;
+        case 6:
+            deletePatientByCNIC();
             break;
         default:
             setColor(12);
@@ -114,12 +118,13 @@ void printMenu()
     cout << "| [3] Update Patient                                       |\n";
     cout << "| [4] Show Categories                                      |\n";
     cout << "| [5] List All Patients                                    |\n";
-    cout << "| [6] Exit                                                 |\n";
+    cout << "| [6] Delete Patient by CNIC                               |\n";
+    cout << "| [7] Exit                                                 |\n";
     cout << "============================================================\n";
     setColor(7);
     cout << "Total Patients Registered: " << patientCount << "\n\n";
     setColor(10);
-    cout << "Select an option [1-6] and press Enter: ";
+    cout << "Select an option [1-7] and press Enter: ";
     setColor(7);
 }
 
@@ -396,6 +401,48 @@ void listAllPatients()
 
     cout << string(117, '-') << endl;
     setColor(7);
+}
+
+void deletePatientByCNIC()
+{
+    string cnicToDelete;
+    cout << "Enter CNIC of the patient to delete: ";
+    cin.ignore();
+    getline(cin, cnicToDelete);
+
+    bool found = false;
+    for (int i = 0; i < patientCount; i++)
+    {
+        if (cnics[i] == cnicToDelete)
+        {
+            for (int j = i; j < patientCount - 1; j++)
+            {
+                cnics[j] = cnics[j + 1];
+                names[j] = names[j + 1];
+                ages[j] = ages[j + 1];
+                genders[j] = genders[j + 1];
+                phoneNumbers[j] = phoneNumbers[j + 1];
+                emailAddresses[j] = emailAddresses[j + 1];
+                symptoms[j] = symptoms[j + 1];
+            }
+
+            patientCount--;
+            savePatientsToFile();
+
+            setColor(10);
+            cout << "Patient with CNIC " << cnicToDelete << " deleted successfully.\n";
+            setColor(7);
+            found = true;
+            break;
+        }
+    }
+
+    if (!found)
+    {
+        setColor(12);
+        cout << "No patient found with CNIC " << cnicToDelete << ".\n";
+        setColor(7);
+    }
 }
 
 string selectSymptom()
