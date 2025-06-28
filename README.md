@@ -63,17 +63,16 @@ Main menu of HPMS:
 
 ## 📂 Project Structure
 
-    hpms/
-    ├── src/
-    │   └── hpms.cpp
-    ├── data/
-    │   └── patients.txt
-    ├── docs/
-    │   ├── HPMS_Report.pdf
-    │   └── HPMS_Presentation.pptx
-    ├── images/
-    │   └── screenshot.png
-    └── README.md
+hpms/
+├── src/
+│ ├── hpms.cpp
+│ └── patients.txt
+├── docs/
+│ ├── HPMS_Report.pdf
+│ └── HPMS_Presentation.pptx
+├── images/
+│ └── screenshot.png
+└── README.md
 
 ## 📎 Additional Materials
 
