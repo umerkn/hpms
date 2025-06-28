@@ -37,7 +37,7 @@ HPMS is a console-based Hospital Patient Management System developed in C++ for 
 ## 🛠 Technologies Used
 
 - Language: **C++17**
-- Build: g++, clang++, MSVC
+- Build Tools: `g++`, `clang++`, MSVC
 - Persistence: Plain text file (`patients.txt`)
 - Terminal coloring: ANSI escape sequences / `windows.h` (conditionally)
 
@@ -48,12 +48,12 @@ HPMS is a console-based Hospital Patient Management System developed in C++ for 
     g++ -o hpms src/hpms.cpp
     ./hpms
 
-### 🪟 On Windows (e.g., using CMD or PowerShell)
+### 🪟 On Windows (e.g., CMD or PowerShell)
 
     g++ -o hpms.exe src/hpms.cpp
     hpms.exe
 
-> 📌 Make sure `patients.txt` exists in the same directory for data to persist.
+> 📌 Ensure `patients.txt` exists in the `src/` directory for data to persist.
 
 ## 🖼 Screenshot
 
@@ -63,16 +63,16 @@ Main menu of HPMS:
 
 ## 📂 Project Structure
 
-hpms/
-├── src/
-│ ├── hpms.cpp
-│ └── patients.txt
-├── docs/
-│ ├── HPMS_Report.pdf
-│ └── HPMS_Presentation.pptx
-├── images/
-│ └── screenshot.png
-└── README.md
+    hpms/
+    ├── src/
+    │   ├── hpms.cpp
+    │   └── patients.txt
+    ├── docs/
+    │   ├── HPMS_Report.pdf
+    │   └── HPMS_Presentation.pptx
+    ├── images/
+    │   └── screenshot.png
+    └── README.md
 
 ## 📎 Additional Materials
 
@@ -80,7 +80,8 @@ hpms/
 - 🎞 [`HPMS_Presentation.pptx`](docs/HPMS_Presentation.pptx) – Course presentation
 
 > ⚠️ **Note:**  
-> The report and presentation reflect an earlier version of the project. The current version includes improvements such as cross-platform compatibility and refactored terminal UI.
+> The report and presentation reflect an earlier version of the project.  
+> The current version includes improvements such as cross-platform compatibility and refactored terminal UI.
 
 ## 📄 License
 
