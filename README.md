@@ -16,48 +16,74 @@
 
 ## 🏥 Project Description
 
-A console-based Hospital Patient Management System developed in C++ for maintaining patient records, searching by CNIC, updating records, and categorizing based on symptoms.
+HPMS is a console-based Hospital Patient Management System developed in C++ for managing patient records. It allows registration, searching, updating, and categorizing patients based on medical symptoms. Originally developed for Windows, this project has been adapted to run cross-platform on **Linux**, **macOS**, and **Windows** consoles.
 
 ## 💡 Features
 
 - Register new patients
 - Search patients by CNIC
+- Update existing records
 - Delete patients by CNIC
-- Update existing patient records
 - Show categories based on symptoms
 - List all patients
-- Data persistence using `patients.txt`
+- Persistent storage using `patients.txt`
+
+## 🖥 Cross-Platform Console
+
+- Works on **Linux**, **macOS**, and **Windows**
+- Uses standard C++ with ANSI escape codes for color on Unix-based systems and `windows.h` on Windows
+- No external dependencies or GUI frameworks
+
+## 🛠 Technologies Used
+
+- Language: **C++17**
+- Build: g++, clang++, MSVC
+- Persistence: Plain text file (`patients.txt`)
+- Terminal coloring: ANSI escape sequences / `windows.h` (conditionally)
+
+## 🚀 How to Compile and Run
+
+### 🐧 On Linux/macOS
+
+    g++ -o hpms src/hpms.cpp
+    ./hpms
+
+### 🪟 On Windows (e.g., using CMD or PowerShell)
+
+    g++ -o hpms.exe src/hpms.cpp
+    hpms.exe
+
+> 📌 Make sure `patients.txt` exists in the same directory for data to persist.
 
 ## 🖼 Screenshot
 
-Below is the main menu of the Hospital Patient Management System:
+Main menu of HPMS:
 
 ![Main Menu Screenshot](images/screenshot.png)
 
-## 🛠 Technologies
+## 📂 Project Structure
 
-- C++
-- Windows console (uses `windows.h` for colors)
-
-## 🚀 How to Run
-
-1. Open the project in any C++ IDE (e.g., Dev C++, Code::Blocks, Visual Studio)
-2. Compile `src/hpms.cpp`
-3. Run the executable
-4. Ensure `patients.txt` is in the same directory to load/save data
-
-## 🗃 Sample Data File
-
-You can optionally include `data/patients.txt` with sample patient entries.
+    hpms/
+    ├── src/
+    │   └── hpms.cpp
+    ├── data/
+    │   └── patients.txt
+    ├── docs/
+    │   ├── HPMS_Report.pdf
+    │   └── HPMS_Presentation.pptx
+    ├── images/
+    │   └── screenshot.png
+    └── README.md
 
 ## 📎 Additional Materials
 
-- [`HPMS_Report.pdf`](docs/HPMS_Report.pdf) – Final report submitted for the course
-- [`HPMS_Presentation.pptx`](docs/HPMS_Presentation.pptx) – Presentation slides used during evaluation
+- 📄 [`HPMS_Report.pdf`](docs/HPMS_Report.pdf) – Final project report
+- 🎞 [`HPMS_Presentation.pptx`](docs/HPMS_Presentation.pptx) – Course presentation
 
-> ⚠️ **Disclaimer:**  
-> The report and presentation were prepared for an earlier version of the project. Several changes and improvements have since been made to the code based on instructor feedback. As a result, some details in the report and presentation may no longer fully reflect the current version.
+> ⚠️ **Note:**  
+> The report and presentation reflect an earlier version of the project. The current version includes improvements such as cross-platform compatibility and refactored terminal UI.
 
 ## 📄 License
 
-This project is for educational use only. Feel free to modify or enhance it.
+This project is **open-source** and released under the **MIT License**.  
+Feel free to use, modify, and distribute it for educational or personal use.

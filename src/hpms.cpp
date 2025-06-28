@@ -1,27 +1,15 @@
-/*
-    Project Title: Hospital Patient Management System
-    Course Name: Programming Fundamentals
-    Course Code: AI-133
-    Instructor: Mr. Muhammad Usman Yousaf
-    Group Members: Amna, Haider, Rehman, Umer
-    Semester: Spring 2025
-
-    Description:
-    A console-based system developed in C++ to manage hospital patient records,
-    including features like registration, search by CNIC, record updating, and
-    category display based on symptoms.
-
-    Note:
-    This project was a collaborative effort. Roles were shared among group members
-    throughout the development process.
-*/
 #include <iostream>
 #include <string>
-#include <windows.h>
-#include <conio.h>
 #include <iomanip>
 #include <fstream>
 #include <sstream>
+
+#ifdef _WIN32
+#include <windows.h>
+#include <conio.h>
+#else
+#include <unistd.h>
+#endif
 
 using namespace std;
 
@@ -45,6 +33,8 @@ void listAllPatients();
 void deletePatientByCNIC();
 string selectSymptom();
 void setColor(int color);
+void clearScreen();
+void waitForKey();
 void savePatientsToFile();
 void loadPatientsFromFile();
 
@@ -83,7 +73,7 @@ int main()
             break;
         }
         cout << "\nPress any key to continue...";
-        getch();
+        waitForKey();
         printMenu();
         cin >> choice;
     }
@@ -97,8 +87,7 @@ int main()
 
 void printMenu()
 {
-    system("cls");
-
+    clearScreen();
     setColor(11);
     cout << "               _    _ _____  __  __  _____  \n";
     cout << "              | |  | |  __ \\|  \\/  |/ ____| \n";
@@ -106,7 +95,6 @@ void printMenu()
     cout << "              |  __  |  ___/| |\\/| |\\___ \\  \n";
     cout << "              | |  | | |    | |  | |____) | \n";
     cout << "              |_|  |_|_|    |_|  |_|_____/  \n";
-
     setColor(7);
     cout << "  +----------------------------------------------------+\n";
     cout << "  |        Hospital Patient Management System          |\n";
@@ -115,7 +103,6 @@ void printMenu()
     cout << "  | Course     : Programming Fundamentals (AI-133)     |\n";
     cout << "  | Instructor : Mr. Muhammad Usman Yousaf             |\n";
     cout << "  +----------------------------------------------------+\n";
-
     setColor(14);
     cout << "  +------------------------ MENU ----------------------+ \n";
     setColor(7);
@@ -127,10 +114,8 @@ void printMenu()
     cout << "  | [6] Delete Patient by CNIC                         |\n";
     cout << "  | [7] Exit                                           |\n";
     cout << "  +----------------------------------------------------+\n";
-
     setColor(10);
     cout << "\n  Total Patients Registered: " << patientCount << "\n";
-
     setColor(11);
     cout << "\n  Select an option and press Enter [1-7]: ";
     setColor(7);
@@ -147,7 +132,6 @@ void registerPatient()
     }
 
     cin.ignore();
-
     while (true)
     {
         cout << "Enter CNIC (e.g., 12345-1234567-1): ";
@@ -190,7 +174,6 @@ void registerPatient()
     {
         cout << "Enter the patient's gender (M/F): ";
         cin >> genders[patientCount];
-
         if (genders[patientCount] == 'M' || genders[patientCount] == 'm' ||
             genders[patientCount] == 'F' || genders[patientCount] == 'f')
         {
@@ -233,9 +216,7 @@ void registerPatient()
 
     symptoms[patientCount] = selectSymptom();
     patientCount++;
-
     savePatientsToFile();
-
     setColor(10);
     cout << "Patient registered successfully.\n";
     setColor(7);
@@ -247,8 +228,8 @@ void searchPatientByCNIC()
     cout << "Enter the patient's CNIC: ";
     cin.ignore();
     getline(cin, cnic);
-
     bool found = false;
+
     for (int i = 0; i < patientCount; i++)
     {
         if (cnics[i] == cnic)
@@ -256,10 +237,8 @@ void searchPatientByCNIC()
             setColor(11);
             cout << "\nPatient Found:\n";
             cout << string(70, '=') << "\n";
-
             cout << left << setw(20) << "Field" << "Details\n";
             cout << string(70, '-') << "\n";
-
             cout << left << setw(20) << "CNIC:" << cnics[i] << "\n";
             cout << left << setw(20) << "Name:" << names[i] << "\n";
             cout << left << setw(20) << "Age:" << ages[i] << "\n";
@@ -267,7 +246,6 @@ void searchPatientByCNIC()
             cout << left << setw(20) << "Phone:" << phoneNumbers[i] << "\n";
             cout << left << setw(20) << "Email:" << emailAddresses[i] << "\n";
             cout << left << setw(20) << "Symptom:" << symptoms[i] << "\n";
-
             cout << string(70, '=') << "\n";
             setColor(7);
             found = true;
@@ -289,7 +267,6 @@ void updatePatient()
     cout << "Enter CNIC to update: ";
     cin.ignore();
     getline(cin, cnic);
-
     for (int i = 0; i < patientCount; i++)
     {
         if (cnics[i] == cnic)
@@ -297,28 +274,22 @@ void updatePatient()
             cout << "Current Age: " << ages[i] << "\n";
             cout << "Enter new age: ";
             cin >> ages[i];
-
             cout << "Current Symptom: " << symptoms[i] << "\n";
             symptoms[i] = selectSymptom();
-
             cin.ignore();
             cout << "Current Phone: " << phoneNumbers[i] << "\n";
             cout << "Enter new phone: ";
             getline(cin, phoneNumbers[i]);
-
             cout << "Current Email: " << emailAddresses[i] << "\n";
             cout << "Enter new email: ";
             getline(cin, emailAddresses[i]);
-
             savePatientsToFile();
-
             setColor(10);
             cout << "Patient record updated successfully.\n";
             setColor(7);
             return;
         }
     }
-
     setColor(12);
     cout << "Patient not found.\n";
     setColor(7);
@@ -335,10 +306,8 @@ void showCategories()
     }
 
     setColor(11);
-    cout << left << setw(20) << "CNIC"
-         << setw(20) << "Name"
-         << setw(20) << "Symptom"
-         << setw(20) << "Category" << endl;
+    cout << left << setw(20) << "CNIC" << setw(20) << "Name"
+         << setw(20) << "Symptom" << setw(20) << "Category" << endl;
     cout << string(80, '-') << endl;
 
     for (int i = 0; i < patientCount; i++)
@@ -346,21 +315,15 @@ void showCategories()
         string category;
         if (symptoms[i] == "Fever")
             category = "Infection";
-        else if (symptoms[i] == "Cough")
+        else if (symptoms[i] == "Cough" || symptoms[i] == "Shortness of Breath")
             category = "Respiratory";
-        else if (symptoms[i] == "Headache")
+        else if (symptoms[i] == "Headache" || symptoms[i] == "Dizziness")
             category = "Neurological";
         else if (symptoms[i] == "Fatigue")
             category = "General";
-        else if (symptoms[i] == "Shortness of Breath")
-            category = "Respiratory";
         else if (symptoms[i] == "Chest Pain")
             category = "Cardiac";
-        else if (symptoms[i] == "Dizziness")
-            category = "Neurological";
-        else if (symptoms[i] == "Nausea")
-            category = "Digestive";
-        else if (symptoms[i] == "Vomiting")
+        else if (symptoms[i] == "Nausea" || symptoms[i] == "Vomiting")
             category = "Digestive";
         else
             category = "Other";
@@ -386,14 +349,10 @@ void listAllPatients()
     }
 
     setColor(11);
-    cout << left << setw(18) << "CNIC"
-         << setw(20) << "Name"
-         << setw(6) << "Age"
-         << setw(8) << "Gender"
-         << setw(15) << "Phone"
-         << setw(30) << "Email"
+    cout << left << setw(18) << "CNIC" << setw(20) << "Name"
+         << setw(6) << "Age" << setw(8) << "Gender"
+         << setw(15) << "Phone" << setw(30) << "Email"
          << setw(20) << "Symptom" << endl;
-
     cout << string(117, '-') << endl;
 
     for (int i = 0; i < patientCount; i++)
@@ -417,8 +376,8 @@ void deletePatientByCNIC()
     cout << "Enter CNIC of the patient to delete: ";
     cin.ignore();
     getline(cin, cnicToDelete);
-
     bool found = false;
+
     for (int i = 0; i < patientCount; i++)
     {
         if (cnics[i] == cnicToDelete)
@@ -433,10 +392,8 @@ void deletePatientByCNIC()
                 emailAddresses[j] = emailAddresses[j + 1];
                 symptoms[j] = symptoms[j + 1];
             }
-
             patientCount--;
             savePatientsToFile();
-
             setColor(10);
             cout << "Patient with CNIC " << cnicToDelete << " deleted successfully.\n";
             setColor(7);
@@ -456,7 +413,6 @@ void deletePatientByCNIC()
 string selectSymptom()
 {
     int symptomChoice;
-
     while (true)
     {
         cout << "+---------------------------+\n";
@@ -480,9 +436,7 @@ string selectSymptom()
             setColor(7);
         }
         else
-        {
             break;
-        }
     }
 
     switch (symptomChoice)
@@ -514,12 +468,55 @@ string selectSymptom()
 
 void setColor(int color)
 {
+#ifdef _WIN32
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+#else
+    switch (color)
+    {
+    case 7:
+        cout << "\033[0m";
+        break;
+    case 10:
+        cout << "\033[32m";
+        break;
+    case 11:
+        cout << "\033[36m";
+        break;
+    case 12:
+        cout << "\033[31m";
+        break;
+    case 14:
+        cout << "\033[33m";
+        break;
+    default:
+        cout << "\033[0m";
+        break;
+    }
+#endif
+}
+
+void clearScreen()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    cout << "\033[2J\033[1;1H";
+#endif
+}
+
+void waitForKey()
+{
+#ifdef _WIN32
+    getch();
+#else
+    cin.ignore();
+    cin.get();
+#endif
 }
 
 void savePatientsToFile()
 {
-    ofstream outFile("../data/patients.txt");
+    ofstream outFile("patients.txt");
     if (!outFile)
     {
         setColor(12);
@@ -544,21 +541,25 @@ void savePatientsToFile()
 
 void loadPatientsFromFile()
 {
-    ifstream file("../data/patients.txt");
+    ifstream file("patients.txt");
     string line;
 
     while (getline(file, line) && patientCount < MAX_PATIENTS)
     {
         stringstream ss(line);
+        string ageStr, genderStr;
+
         getline(ss, cnics[patientCount], ',');
         getline(ss, names[patientCount], ',');
-        ss >> ages[patientCount];
-        ss.ignore();
-        ss >> genders[patientCount];
-        ss.ignore();
+        getline(ss, ageStr, ',');
+        getline(ss, genderStr, ',');
         getline(ss, phoneNumbers[patientCount], ',');
         getline(ss, emailAddresses[patientCount], ',');
         getline(ss, symptoms[patientCount]);
+
+        ages[patientCount] = stoi(ageStr);
+        genders[patientCount] = genderStr.empty() ? '?' : genderStr[0];
+
         patientCount++;
     }
 }
