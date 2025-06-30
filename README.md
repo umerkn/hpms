@@ -63,7 +63,7 @@ hpms.exe
 
 Main menu of HPMS:
 
-![Main Menu Screenshot](images/screenshot.png)
+![Main Menu Screenshot](images/hpms-preview.png)
 
 ## 📂 Project Structure
 
