@@ -2,7 +2,7 @@
 
 ## 📚 Course Information
 
-- **Course Name:** Programming Fundamentals
+- **Course:** Programming Fundamentals
 - **Course Code:** AI-133
 - **Semester:** Spring 2025
 - **Instructor:** Mr. Muhammad Usman Yousaf
@@ -16,7 +16,9 @@
 
 ## 🏥 Project Description
 
-HPMS is a console-based Hospital Patient Management System developed in C++ for managing patient records. It allows registration, searching, updating, and categorizing patients based on medical symptoms. Originally developed for Windows, this project has been adapted to run cross-platform on **Linux**, **macOS**, and **Windows** consoles.
+**HPMS** is a console-based Hospital Patient Management System developed in **C++** for managing patient records. It supports registration, searching, updating, and categorization based on medical symptoms. Originally developed for Windows, the project has been extended for cross-platform compatibility on **Linux**, **macOS**, and **Windows** consoles.
+
+This project is **open source** and available under the [MIT License](LICENSE).
 
 ## 💡 Features
 
@@ -24,40 +26,43 @@ HPMS is a console-based Hospital Patient Management System developed in C++ for 
 - Search patients by CNIC
 - Update existing records
 - Delete patients by CNIC
-- Show categories based on symptoms
+- Categorize patients based on symptoms
 - List all patients
 - Persistent storage using `patients.txt`
 
-## 🖥 Cross-Platform Console
+## 🖥 Cross-Platform Console Support
 
 - Works on **Linux**, **macOS**, and **Windows**
-- Uses standard C++ with ANSI escape codes for color on Unix-based systems and `windows.h` on Windows
-- No external dependencies or GUI frameworks
+- Uses:
+  - **ANSI escape codes** for color on Unix-based systems
+  - **`windows.h`** for color on Windows
+- No external libraries or GUI frameworks required
 
 ## 🛠 Technologies Used
 
-- Language: **C++17**
-- Build Tools: `g++`, `clang++`, MSVC
-- Persistence: Plain text file (`patients.txt`)
-- Terminal coloring: ANSI escape sequences / `windows.h` (conditionally)
+- **Language:** C++17
+- **Compilers:** `g++`, `clang++`, MSVC, MinGW
+- **Build Tools:** Standard command-line
+- **Persistence:** Plain text file (`patients.txt`)
+- **UI Coloring:** ANSI / `windows.h` (platform-dependent)
 
 ## 🚀 How to Compile and Run
 
-### 🐧 On Linux/macOS
+### 🐧 Linux/macOS
 
 ```bash
-g++ -o hpms src/hpms.cpp
+g++ -std=c++17 -o hpms src/hpms.cpp
 ./hpms
 ```
 
-### 🪟 On Windows (e.g., CMD or PowerShell)
+### 🪟 Windows (Using MinGW)
 
 ```bash
-g++ -o hpms.exe src/hpms.cpp
+g++ -std=c++17 -o hpms.exe src/hpms.cpp
 hpms.exe
 ```
 
-> 📌 Ensure `patients.txt` exists in the `src/` directory for data to persist.
+> 📌 Make sure `patients.txt` exists in the `src/` directory for data to persist.
 
 ## 🖼 Screenshot
 
@@ -76,19 +81,19 @@ hpms/
 │   ├── HPMS_Report.pdf
 │   └── HPMS_Presentation.pptx
 ├── images/
-│   └── screenshot.png
+│   └── hpms-preview.png
 └── README.md
 ```
 
 ## 📎 Additional Materials
 
-- 📄 [`HPMS_Report.pdf`](docs/HPMS_Report.pdf) – Final project report
-- 🎞 [`HPMS_Presentation.pptx`](docs/HPMS_Presentation.pptx) – Course presentation
+- 📄 [Final Report](docs/HPMS_Report.pdf)
+- 🎞 [Presentation Slides](docs/HPMS_Presentation.pptx)
 
 > ⚠️ **Note:**  
-> The report and presentation reflect an earlier version of the project.  
-> The current version includes improvements such as cross-platform compatibility and refactored terminal UI.
+> The report and slides reflect an earlier version.  
+> This repository includes improvements such as cross-platform support and a refactored terminal UI.
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
