@@ -68,7 +68,7 @@ hpms.exe
 
 Main menu of HPMS:
 
-![Main Menu Screenshot](images/hpms-preview.png)
+![Main Menu Screenshot](images/hpms_preview.png)
 
 ## 📂 Project Structure
 
@@ -78,17 +78,17 @@ hpms/
 │   ├── hpms.cpp
 │   └── patients.txt
 ├── docs/
-│   ├── HPMS_Report.pdf
-│   └── HPMS_Presentation.pptx
+│   ├── hpms_report.pdf
+│   └── hpms_presentation.pptx
 ├── images/
-│   └── hpms-preview.png
+│   └── hpms_preview.png
 └── README.md
 ```
 
 ## 📎 Additional Materials
 
-- 📄 [Final Report](docs/HPMS_Report.pdf)
-- 🎞 [Presentation Slides](docs/HPMS_Presentation.pptx)
+- 📄 [Final Report](docs/hpms_report.pdf)
+- 🎞 [Presentation Slides](docs/hpms_presentation.pptx)
 
 > ⚠️ **Note:**  
 > The report and slides reflect an earlier version.  
