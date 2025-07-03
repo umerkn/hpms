@@ -1,9 +1,9 @@
 # Hospital Patient Management System (HPMS)
 
-## 📘 Course Info
+## 📚 Course Information
 
 - **Course:** Programming Fundamentals
-- **Code:** AI-133
+- **Course Code:** AI-133
 - **Semester:** Spring 2025
 - **Instructor:** Mr. Muhammad Usman Yousaf
 
@@ -14,45 +14,46 @@
 - Rehman
 - Umer
 
-## 🏥 Project Overview
+## 🏥 Project Description
 
-A simple console-based Hospital Patient Management System in **C++**. It allows registering patients, searching by CNIC, updating, deleting, categorizing based on symptoms, and listing all records. Patient data is saved to a text file.
+**HPMS** is a console-based Hospital Patient Management System written in **C++**. It allows you to register, search, update, delete, and categorize patient records. The program uses a plain text file for saving data between sessions.
 
-## 🔧 Features
+This project runs on **Windows**, **Linux**, and **macOS**, and uses basic console features (no GUI or external libraries).
+
+## 💡 Features
 
 - Register new patients
-- Search patients by CNIC
-- Update existing patient records
-- Delete patient by CNIC
-- Categorize based on symptoms
+- Search by CNIC
+- Update existing records
+- Delete patients
+- Categorize by symptom
 - List all patients
-- Data saved to `patients.txt`
+- Save/load from `patients.txt`
 
-## 🖥 Platform Compatibility
+## 🖥 Cross-Platform Support
 
-- Works on **Windows**, **Linux**, and **macOS** terminals
-- Uses platform-specific color support:
-  - `windows.h` on Windows
-  - ANSI escape codes on Linux/macOS
-- No external libraries used
+- Runs in any terminal (CMD, Bash, etc.)
+- Uses:
+  - ANSI escape codes for Linux/macOS
+  - `windows.h` for Windows console colors
 
-## 🛠 How to Compile
+## 🚀 How to Compile and Run
 
-### Linux/macOS
+### 🐧 Linux/macOS
 
 ```bash
-g++ -o hpms hpms.cpp
+g++ hpms.cpp -o hpms
 ./hpms
 ```
 
-### Windows (MinGW or cmd)
+### 🪟 Windows
 
 ```bash
 c++ hpms.cpp -o hpms.exe
 hpms.exe
 ```
 
-> Make sure `patients.txt` exists in the same folder for data to be saved.
+> 📌 Make sure `patients.txt` is in the same folder as your `.exe` or `.out` file to load and save patient data.
 
 ## 📄 License
 
